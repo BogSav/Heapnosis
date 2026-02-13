@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake: Build (active)",
+      "type": "process",
+      "command": "${config:cmake.cmakePath}",
+      "args": [
+        "--build",
+        "${command:cmake.buildDirectory}",
+        "--config",
+        "${command:cmake.buildType}",
+        "--parallel"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}

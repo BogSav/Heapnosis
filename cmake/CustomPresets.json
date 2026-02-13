@@ -1,0 +1,60 @@
+{
+  "version": 6,
+
+  "configurePresets": [
+    {
+      "name": "BaseMultiConfigPreset",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug;RelWithDebInfo;Release",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+
+    {
+      "name": "MSVCPreset",
+      "displayName": "MSVC Preset",
+      "inherits": ["BaseMultiConfigPreset"],
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "build/msvc",
+      "cacheVariables": {
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<IF:$<CONFIG:Debug>,Debug,>"
+      }
+    },
+    {
+      "name": "NinjaClangCLPreset",
+      "displayName": "Ninja Multi-Config (clang-cl)",
+      "inherits": ["BaseMultiConfigPreset"],
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "build/ninja",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang-cl",
+        "CMAKE_CXX_FLAGS_DEBUG": "/Od /Z7",
+        "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "/O2 /Zi",
+        "CMAKE_CXX_FLAGS_RELEASE": "/O2"
+      }
+    }
+  ],
+
+  "buildPresets": [
+    {
+      "name": "NinjaDebug",
+      "displayName": "Ninja - Debug",
+      "configurePreset": "NinjaClangCLPreset",
+      "configuration": "Debug"
+    },
+    {
+      "name": "NinjaRelease",
+      "displayName": "Ninja - Release",
+      "configurePreset": "NinjaClangCLPreset",
+      "configuration": "Release"
+    },
+    {
+      "name": "NinjaRelWithDebInfo",
+      "displayName": "Ninja - RelWithDebInfo",
+      "configurePreset": "NinjaClangCLPreset",
+      "configuration": "RelWithDebInfo"
+    }
+  ]
+}

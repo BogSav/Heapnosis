@@ -1,0 +1,17 @@
+# Add subdirectories for each component (each defines a STATIC library)
+add_subdirectory(utils)
+add_subdirectory(algorithms)
+add_subdirectory(datastructures)
+add_subdirectory(concurrency)
+add_subdirectory(playground)
+
+# Apply warnings to all libraries
+foreach(target algoforge_utils algoforge_algorithms algoforge_datastructures algoforge_concurrency algoforge_playground)
+    if (ALGOFORGE_ENABLE_WARNINGS)
+        if (MSVC)
+            target_compile_options(${target} PRIVATE /W4 /permissive-)
+        else()
+            target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic)
+        endif()
+    endif()
+endforeach()
