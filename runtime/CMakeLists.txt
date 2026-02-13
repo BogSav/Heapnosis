@@ -1,0 +1,13 @@
+add_executable(sandapp
+    main.cpp
+    SandApp.cpp
+    SandApp.hpp
+)
+target_link_libraries(sandapp
+    PRIVATE
+        heapnosisUtils
+        heapnosisAlgorithms
+        heapnosisDatastructures
+        heapnosisConcurrency
+)
+heapnosis_apply_warnings(sandapp)

@@ -15,7 +15,7 @@
       "name": "MSVCPreset",
       "displayName": "MSVC Preset",
       "inherits": ["BaseMultiConfigPreset"],
-      "generator": "Visual Studio 17 2022",
+      "generator": "Visual Studio 18 2026",
       "architecture": "x64",
       "binaryDir": "build/msvc",
       "cacheVariables": {

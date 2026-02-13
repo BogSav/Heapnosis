@@ -1,34 +1,29 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(AlgoForge LANGUAGES CXX)
+project(Heapnosis LANGUAGES CXX)
+
+option(HEAPNOSIS_ENABLE_WARNINGS "Enable strict warnings" ON)
+
+function(heapnosis_apply_warnings target)
+    if (NOT HEAPNOSIS_ENABLE_WARNINGS)
+        return()
+    endif()
+
+    if (MSVC)
+        target_compile_options(${target} PRIVATE /W4 /permissive-)
+    else()
+        target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic)
+    endif()
+endfunction()
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-option(ALGOFORGE_ENABLE_WARNINGS "Enable strict warnings" ON)
+# Enable folder organization for IDEs
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_subdirectory(src)
-
-# Executabil principal care folose?te toate bibliotecile
-add_executable(algoforge
-    main.cpp
-)
-target_link_libraries(algoforge PRIVATE 
-    algoforge_algorithms
-    algoforge_datastructures
-    algoforge_concurrency
-    algoforge_playground
-)
-
-# Warnings pentru executabilul principal
-if (ALGOFORGE_ENABLE_WARNINGS)
-    if (MSVC)
-        target_compile_options(algoforge PRIVATE /W4 /permissive-)
-    else()
-        target_compile_options(algoforge PRIVATE -Wall -Wextra -Wpedantic)
-    endif()
-endif()
+add_subdirectory(sources)
+add_subdirectory(runtime)
 
 enable_testing()
 add_subdirectory(tests)

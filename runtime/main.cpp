@@ -1,16 +1,16 @@
+#include "SandApp.hpp"
+
 #include "Algorithms.hpp"
 #include "Concurrency.hpp"
 #include "DataStructures.hpp"
-#include "SandApp.hpp"
 #include "ScopedTimer.hpp"
-
-#include <iostream>
 
 int main()
 {
 	bool enableTimers = true;
+
 	{
-		SCOPED_TIMER("Playground", enableTimers);
+		SCOPED_TIMER("Sandbox", enableTimers);
 		playground::run_playground();
 	}
 

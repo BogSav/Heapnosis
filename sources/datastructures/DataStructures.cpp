@@ -1,8 +1,8 @@
-#include "datastructures.hpp"
+#include "DataStructures.hpp"
 
 #include "List.hpp"
 
-#include "../utils/benchmark.hpp"
+#include "Benchmark.hpp"
 
 #include <iostream>
 #include <vector>

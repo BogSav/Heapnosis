@@ -1,6 +1,6 @@
-#include "algorithms.hpp"
+#include "Algorithms.hpp"
 
-#include "../utils/benchmark.hpp"
+#include "Benchmark.hpp"
 
 #include <algorithm>
 #include <iostream>

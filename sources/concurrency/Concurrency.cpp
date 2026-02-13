@@ -1,6 +1,6 @@
-#include "concurrency.hpp"
+#include "Concurrency.hpp"
 
-#include "../utils/benchmark.hpp"
+#include "Benchmark.hpp"
 
 #include <chrono>
 #include <iostream>
