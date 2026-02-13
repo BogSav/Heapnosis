@@ -13,20 +13,4 @@ foreach(gtest_target gtest gtest_main gmock gmock_main)
     endif()
 endforeach()
 
-add_executable(sample_tests
-    sample_tests.cpp
-	list_tests.cpp
-)
-
-target_link_libraries(sample_tests
-    PRIVATE
-        GTest::gtest_main
-        heapnosisUtils
-        heapnosisAlgorithms
-        heapnosisDatastructures
-        heapnosisConcurrency
-)
-heapnosis_apply_warnings(sample_tests)
-
-include(GoogleTest)
-gtest_discover_tests(sample_tests)
+add_subdirectory(datastructures)
