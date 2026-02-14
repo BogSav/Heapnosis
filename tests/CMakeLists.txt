@@ -14,3 +14,4 @@ foreach(gtest_target gtest gtest_main gmock gmock_main)
 endforeach()
 
 add_subdirectory(datastructures)
+add_subdirectory(algorithms)
