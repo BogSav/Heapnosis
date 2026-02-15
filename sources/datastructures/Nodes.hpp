@@ -2,6 +2,7 @@
 
 #include <array>
 #include <cstddef>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -54,7 +55,11 @@ struct AVLTreeNode
 };
 
 /// @brief Nodul pentru Red-Black Tree.
-enum class RBColor { Red, Black };
+enum class RBColor
+{
+	Red,
+	Black
+};
 
 template <typename T>
 struct RedBlackTreeNode
@@ -92,7 +97,7 @@ struct BPlusTreeNode
 	bool leaf = true;
 	std::vector<T> keys;
 	std::vector<BPlusTreeNode*> children;
-	BPlusTreeNode* next = nullptr; // linked-list pointer for leaf level
+	BPlusTreeNode* next = nullptr;  // linked-list pointer for leaf level
 };
 
 // ── Trie / Radix / Ternary Search Tree nodes ──────────────────────────
@@ -149,7 +154,7 @@ template <typename T>
 struct LeftistNode
 {
 	T key;
-	int rank = 0; // null-path length
+	int rank = 0;  // null-path length
 	LeftistNode* left = nullptr;
 	LeftistNode* right = nullptr;
 };
